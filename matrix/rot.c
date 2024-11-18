@@ -11,8 +11,8 @@ int main(void) {
 
     printf("Enter a %ix%i matrix:\n", SIZE);
 
-    for(int i = 0; i < SIZE; i++) {
-        scanf("%i %i %i", &matrix[i] + 0, &matrix[i] + 1, &matrix[i] + 2);
+    for(int i = 0; i < LEN; i++) {
+        scanf("%i", &matrix[i]);
     }
 
     puts("Rotated 90* clockwise:");
