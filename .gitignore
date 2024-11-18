@@ -1,0 +1,12 @@
+# IDEs and code editors
+.vscode/
+.idea/
+
+# Binaries
+*.exe
+*.out
+*.o
+
+# Other
+*.tmp
+*~
