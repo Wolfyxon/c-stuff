@@ -4,6 +4,8 @@
 const size_t SIZE = 3;
 const size_t LEN = SIZE * SIZE;
 
+void printMatrix(int matrix[SIZE]);
+
 int main(void) {
     int matrix[LEN];
 
