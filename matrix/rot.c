@@ -25,10 +25,8 @@ int main(void) {
             matrix_90cw[(row * SIZE + col)] = matrix[(SIZE - 1 - col) * SIZE + row]; 
         }
     }
-        
-    printMatrix(matrix_90cw);
 
-    puts("");
+    printMatrix(matrix_90cw);
 }
 
 void printMatrix(int matrix[SIZE]) {
