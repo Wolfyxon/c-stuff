@@ -26,6 +26,6 @@ void printMatrix(int matrix[SIZE]) {
     for(int i = 0; i < LEN; i++) {
         printf("%i ", matrix[i]);
 
-        if(i % SIZE == 0) puts("");
+        if((i + 1) % SIZE == 0) puts("");
     }
 }
