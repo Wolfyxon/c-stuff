@@ -19,13 +19,13 @@ int main(void) {
 
     int matrix_90cw[LEN];
 
-    // Transposition - swapping columns and rows
+
     for(int col = 0; col < SIZE; col++) {
         for(int row = 0; row < SIZE; row++) {
-            matrix_90cw[row * SIZE + col] = matrix[col * SIZE + row]; 
+            matrix_90cw[(row * SIZE + col)] = matrix[(SIZE - 1 - col) * SIZE + row]; 
         }
     }
-    
+        
     printMatrix(matrix_90cw);
 
     puts("");
