@@ -19,3 +19,11 @@ int main(void) {
 
     puts("");
 }
+
+void printMatrix(int matrix[SIZE]) {
+    for(int i = 0; i < LEN; i++) {
+        printf("%i ", matrix[i]);
+
+        if(i % SIZE == 0) puts("");
+    }
+}
