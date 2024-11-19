@@ -8,7 +8,11 @@ int main(void) {
     int map[LEN];
     
     for(int i = 0; i < LEN; i++) {
-        map[i] = 0;
+        if(i == LEN / 2 + SIZE / 2) {
+            map[i] = 1;
+        } else {
+            map[i] = 0;
+        }
     }
 
     while(1) {
