@@ -4,6 +4,17 @@
 const int SIZE = 8;
 const int LEN = SIZE * SIZE;
 
+void moveCell(int* map, int x, int y, int dirX, int dirY) {
+    int oldIdx = (SIZE * y) + x;
+    int newIdx = (SIZE * ((y + dirY) % SIZE)) + ((x + dirX) % SIZE);
+
+    int oldCell = map[oldIdx]; 
+    int newCell = map[newIdx];
+    
+    map[oldIdx] = newCell;
+    map[newIdx] = oldCell;
+}
+
 int main(void) {    
     int map[LEN];
     
@@ -14,6 +25,9 @@ int main(void) {
             map[i] = 0;
         }
     }
+
+    int x = SIZE / 2;
+    int y = SIZE / 2;
 
     while(1) {
         initscr();
@@ -42,11 +56,24 @@ int main(void) {
 
         if(inp == -1) continue;
 
+        int dirX = 0;
+        int dirY = 0;
+
         switch (inp) {
             case 'x':
                 puts("Bye");
                 return 0;
+
+            case 'a':
+                dirX = -1;
+                break;
         }
+
+        moveCell(map, x, y, dirX, dirY);
+
+        x += dirX;
+        y += dirY;
+
 
         clear();
     }
