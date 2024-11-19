@@ -26,8 +26,8 @@ int main(void) {
             for(int ix = 0; ix < SIZE; ix++) {
                 int cell = map[(iy * SIZE) + ix];
                 
-                char ch = '0';
-                if(cell) ch = '1';
+                char ch = '.';
+                if(cell) ch = 'o';
                 
                 addstr(&ch);
                 addstr(" ");
