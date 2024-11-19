@@ -29,8 +29,8 @@ int main(void) {
                 char ch = '.';
                 if(cell) ch = 'o';
                 
-                addstr(&ch);
-                addstr(" ");
+                addch(ch);
+                addch(' ');
             }
 
             addstr("\n");
