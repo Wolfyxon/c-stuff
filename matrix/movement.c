@@ -11,9 +11,6 @@ int main(void) {
         map[i] = 0;
     }
 
-    int x = SIZE / 2;
-    int y = SIZE / 2;
-
     while(1) {
         initscr();
 
