@@ -64,8 +64,17 @@ int main(void) {
                 puts("Bye");
                 return 0;
 
+            case 'w':
+                dirY = -1;
+                break;
+            case 's':
+                dirY = 1;
+                break;
             case 'a':
                 dirX = -1;
+                break;
+            case 'd':
+                dirX = 1;
                 break;
         }
 
