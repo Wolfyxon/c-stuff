@@ -25,6 +25,8 @@ int main(void) {
         "Square"
     };
     
+    int namesLen = sizeof(names) / sizeof(char*);
+
     for(int i = 0; i < sizeof(names) / sizeof(char*); i++) {
         printf("%i. %s \n", i + 1, names[i]);
     }
@@ -34,6 +36,11 @@ int main(void) {
     int func;
     scanf("%i", &func);
     func--;
+
+    if(func < 0 || func >= namesLen) {
+        puts("Unknown function type");
+        return main();
+    }
 
     puts("Enter the point:");
     float x = inputf("x");
