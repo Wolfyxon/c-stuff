@@ -3,6 +3,7 @@
 #include <math.h>
 
 enum Function {
+    LINEAR,
     SQUARE
 };
 
@@ -15,6 +16,13 @@ float inputf(const char* query) {
     return res;
 }
 
+float linear(float x, float y) {
+    float a = inputf("a");
+    float b = inputf("b");
+
+    return a * x + b;
+}
+
 float square(float x, float y) {
     float a = inputf("a");
     float b = inputf("b");
@@ -25,7 +33,8 @@ float square(float x, float y) {
 
 int main(void) {
 
-    char* names[1] = {
+    char* names[2] = {
+        "Linear",
         "Square"
     };
     
@@ -53,6 +62,10 @@ int main(void) {
     float res;
 
     switch (func) {
+        case LINEAR:
+            res = linear(x, y);
+            break;
+
         case SQUARE:
             res = square(x, y);
             break;
