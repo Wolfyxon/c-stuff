@@ -11,6 +11,10 @@ float inputf(const char* query) {
 
 int main(void) {
     puts("f(x) = ax^2 + bx + c");
+    puts("dt = b^2 - 4ac");
+    puts("x1 = (-b - sqrt(dt)) / 2a");
+    puts("x2 = (-b + sqrt(dt)) / 2a");
+    puts("");
 
     float a = inputf("a");
     float b = inputf("b");
