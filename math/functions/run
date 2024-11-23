@@ -2,5 +2,10 @@
 
 FILE=$1
 
+if [ -z $FILE ]; then
+    echo "Usage: run <c file>"
+    exit 1
+fi
+
 gcc $FILE -lm
 ./a.out
