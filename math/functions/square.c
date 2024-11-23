@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <math.h> // include the -lm flag in gcc
+#include <math.h>
 
 float inputf(const char* query) {
     float res;
