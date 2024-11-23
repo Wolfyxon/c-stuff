@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <math.h> // include the -lm flag in gcc
 
 float inputf(const char* query) {
     float res;
@@ -22,5 +23,16 @@ int main(void) {
 
     puts("");
 
+    float dt = pow(b, 2) - 4 * a * c;
+    float sqDt = sqrt(dt);
+
+    float x1 = (-b - sqDt) / 2 * a;
+    float x2 = (-b + sqDt) / 2 * a;
+    
+    printf("delta: %f \n", dt);
+    printf("sqrt(delta): %f \n", sqDt);
+    printf("x1: %f \n", x1);
+    printf("x2: %f \n", x2);
+    
     return 0;
 }
