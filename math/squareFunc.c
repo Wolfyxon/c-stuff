@@ -33,6 +33,13 @@ int main(void) {
     printf("sqrt(delta): %f \n", sqDt);
     printf("x1: %f \n", x1);
     printf("x2: %f \n", x2);
+    puts("");
+
+    int range = 4;
+    
+    for(int x = -range; x <= range; x++) {
+        printf("f(%i) = %f \n", x, a * pow(x, 2) + b * x + c);
+    }
     
     return 0;
 }
