@@ -16,7 +16,11 @@ float inputf(const char* query) {
 }
 
 bool square(float x, float y) {
-    return false;
+    float a = inputf("a");
+    float b = inputf("b");
+    float c = inputf("c");
+    
+    return (a * pow(x, 2) + b * x + c) == y;
 }
 
 int main(void) {
@@ -45,5 +49,19 @@ int main(void) {
     puts("Enter the point:");
     float x = inputf("x");
     float y = inputf("y");
+
+    bool res;
+
+    switch (func) {
+        case SQUARE:
+            res = square(x, y);
+            break;
+    }
+
+    if(res) {
+        puts("Belongs");
+    } else {
+        puts("Does not belong");
+    }
     
 }
