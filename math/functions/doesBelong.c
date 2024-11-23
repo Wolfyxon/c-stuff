@@ -16,14 +16,14 @@ float inputf(const char* query) {
     return res;
 }
 
-float linear(float x, float y) {
+float linear(float x) {
     float a = inputf("a");
     float b = inputf("b");
 
     return a * x + b;
 }
 
-float square(float x, float y) {
+float square(float x) {
     float a = inputf("a");
     float b = inputf("b");
     float c = inputf("c");
@@ -63,11 +63,11 @@ int main(void) {
 
     switch (func) {
         case LINEAR:
-            res = linear(x, y);
+            res = linear(x);
             break;
 
         case SQUARE:
-            res = square(x, y);
+            res = square(x);
             break;
     }
 
