@@ -15,12 +15,12 @@ float inputf(const char* query) {
     return res;
 }
 
-bool square(float x, float y) {
+float square(float x, float y) {
     float a = inputf("a");
     float b = inputf("b");
     float c = inputf("c");
     
-    return (a * pow(x, 2) + b * x + c) == y;
+    return a * pow(x, 2) + b * x + c;
 }
 
 int main(void) {
@@ -50,7 +50,7 @@ int main(void) {
     float x = inputf("x");
     float y = inputf("y");
 
-    bool res;
+    float res;
 
     switch (func) {
         case SQUARE:
@@ -58,10 +58,11 @@ int main(void) {
             break;
     }
 
-    if(res) {
+    if(res == y) {
         puts("Belongs");
     } else {
         puts("Does not belong");
+        printf("f(%f) == %f \n", x, res);
     }
     
 }
