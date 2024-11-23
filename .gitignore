@@ -3,8 +3,11 @@
 .idea/
 
 # Binaries
+__pycache__/
+
 *.exe
 *.out
+*.pyc
 *.o
 
 # Other
