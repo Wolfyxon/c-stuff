@@ -4,6 +4,8 @@
 
 # Binaries
 __pycache__/
+target/
+build/
 
 *.exe
 *.out
