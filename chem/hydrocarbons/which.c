@@ -95,6 +95,8 @@ int main(void) {
     printf("H amount: ");
     scanf("%i", &h);
 
+    puts("");
+
     if(h == 2 * c + 2) {
         puts("Alkane (alkan)");
         printHc(c, ALKANES);
