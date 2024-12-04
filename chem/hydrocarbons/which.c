@@ -73,6 +73,33 @@ const Hydrocarbon ALKENES[SIZE] = {
     }
 };
 
+const Hydrocarbon ALKYNES[SIZE] = {
+    {
+        .plName = "ni mo"
+    },
+    {
+        .plName = "etyn (acetylen)"
+    },
+    {
+        .plName = "propyn"
+    },
+    {
+        .plName = "but-1-yn"
+    },
+    {
+        .plName = "pent-1-yn"
+    },
+    {
+        .plName = "heks-1-yn"
+    },
+    {
+        .plName = "hept-1-yn"
+    },
+    {
+        .plName = "okt-1-yn"
+    }
+};
+
 void printHc(int c, const Hydrocarbon *array) {
     int idx = c - 1;
 
@@ -107,6 +134,7 @@ int main(void) {
 
     } else if(h == 2 * c - 2) {
         puts("Alkyne (alkin)");
+        printHc(c, ALKYNES);
 
     } else {
         puts("error");
