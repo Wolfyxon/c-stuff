@@ -13,12 +13,14 @@ alkyne (PL: alkin):
 
 */
 
+const int SIZE = 8;
+
 typedef struct {
     char* plName;
     //char* name;
 } Hydrocarbon;
 
-const Hydrocarbon ALKENES[8] = {
+const Hydrocarbon ALKENES[SIZE] = {
     {
         .plName = "ni mo"
     },
