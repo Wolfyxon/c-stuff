@@ -19,7 +19,7 @@ typedef struct {
     //char* name;
 } Hydrocarbon;
 
-// TODO: Polish names
+// TODO: English names
 
 const Hydrocarbon ALKANES[SIZE] = {
     {
