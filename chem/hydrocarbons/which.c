@@ -18,8 +18,31 @@ typedef struct {
     //char* name;
 } Hydrocarbon;
 
-const char* ALKANES[8] = {
-
+const Hydrocarbon ALKANES[8] = {
+    {
+        .plName = "ni mo"
+    },
+    {
+        .plName = "eten (etylen)"
+    },
+    {
+        .plName = "propen"
+    },
+    {
+        .plName = "but-1-en"
+    },
+    {
+        .plName = "pent-1-en"
+    },
+    {
+        .plName = "heks-1-en"
+    },
+    {
+        .plName = "hept-1-en"
+    },
+    {
+        .plName = "okt-1-en"
+    }
 };
 
 int main(void) {
