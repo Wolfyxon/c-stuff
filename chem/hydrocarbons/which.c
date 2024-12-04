@@ -18,7 +18,7 @@ typedef struct {
     //char* name;
 } Hydrocarbon;
 
-const Hydrocarbon ALKANES[8] = {
+const Hydrocarbon ALKENES[8] = {
     {
         .plName = "ni mo"
     },
