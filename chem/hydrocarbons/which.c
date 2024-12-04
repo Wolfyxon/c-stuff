@@ -52,7 +52,7 @@ void printHc(int c, const Hydrocarbon *array) {
     if(idx >= SIZE) {
         puts("Unknown hydrocarbon name");
     } else {
-        Hydrocarbon* c = &array[idx];
+        const Hydrocarbon* c = &array[idx];
 
         printf("%s \n", c->plName);
     }
