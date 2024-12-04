@@ -106,7 +106,7 @@ int main(void) {
         printHc(c, ALKENES);
 
     } else if(h == 2 * c - 2) {
-        puts("Alkyne (alken)");
+        puts("Alkyne (alkin)");
 
     } else {
         puts("error");
