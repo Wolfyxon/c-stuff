@@ -13,11 +13,12 @@ alkyne (PL: alkin):
 
 */
 
-struct Hydrocarbon {
+typedef struct {
     char* plName;
     int c;
     int h;
-};
+} Hydrocarbon;
+
 
 int main(void) {
     int c;
