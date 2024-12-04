@@ -56,11 +56,11 @@ int main(void) {
     scanf("%i", &h);
 
     if(h == 2 * c + 2) {
-        puts("Alkane");
+        puts("Alkane (alkan)");
     } else if(h == 2 * c) {
-        puts("Alkene");
+        puts("Alkene (alken)");
     } else if(h == 2 * c - 2) {
-        puts("Alkyne");
+        puts("Alkyne (alken)");
     } else {
         puts("error");
     }
