@@ -19,6 +19,33 @@ typedef struct {
     //char* name;
 } Hydrocarbon;
 
+const Hydrocarbon ALKANES[SIZE] = {
+    {
+        .plName = "metan"
+    },
+    {
+        .plName = "etan"
+    },
+    {
+        .plName = "propan"
+    },
+    {
+        .plName = "butan"
+    },
+    {
+        .plName = "pentan"
+    },
+    {
+        .plName = "heksan"
+    },
+    {
+        .plName = "heptan"
+    },
+    {
+        .plName = "oktan"
+    }
+};
+
 const Hydrocarbon ALKENES[SIZE] = {
     {
         .plName = "ni mo"
@@ -70,6 +97,7 @@ int main(void) {
 
     if(h == 2 * c + 2) {
         puts("Alkane (alkan)");
+        printHc(c, ALKANES);
 
     } else if(h == 2 * c) {
         puts("Alkene (alken)");
