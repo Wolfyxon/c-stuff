@@ -15,10 +15,12 @@ alkyne (PL: alkin):
 
 typedef struct {
     char* plName;
-    int c;
-    int h;
+    //char* name;
 } Hydrocarbon;
 
+const char* ALKANES[8] = {
+
+};
 
 int main(void) {
     int c;
