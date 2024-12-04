@@ -13,6 +13,12 @@ alkyne (PL: alkin):
 
 */
 
+struct Hydrocarbon {
+    char* plName;
+    int c;
+    int h;
+};
+
 int main(void) {
     int c;
     int h;
