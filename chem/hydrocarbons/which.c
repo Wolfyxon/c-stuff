@@ -14,5 +14,22 @@ alkyne (PL: alkin):
 */
 
 int main(void) {
+    int c;
+    int h;
 
+    printf("C amount: ");
+    scanf("%i", &c);
+
+    printf("H amount: ");
+    scanf("%i", &h);
+
+    if(h == 2 * c + 2) {
+        puts("Alkane");
+    } else if(h == 2 * c) {
+        puts("Alkene");
+    } else if(h == 2 * c - 2) {
+        puts("Alkyne");
+    } else {
+        puts("error");
+    }
 }
