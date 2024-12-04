@@ -54,7 +54,7 @@ void printHc(int c, const Hydrocarbon *array) {
     } else {
         Hydrocarbon* c = &array[idx];
 
-        printf("%s", c->plName);
+        printf("%s \n", c->plName);
     }
 }
 
