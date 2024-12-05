@@ -16,89 +16,111 @@ alkyne (PL: alkin):
 
 typedef struct {
     char* plName;
-    //char* name;
+    char* name;
 } Hydrocarbon;
-
-// TODO: English names
 
 const Hydrocarbon ALKANES[SIZE] = {
     {
-        .plName = "metan"
+        .plName = "metan",
+        .name = "methane"
     },
     {
-        .plName = "etan"
+        .plName = "etan",
+        .name = "ethane"
     },
     {
-        .plName = "propan"
+        .plName = "propan",
+        .name = "propane"
     },
     {
-        .plName = "butan"
+        .plName = "butan",
+        .name = "butane"
     },
     {
-        .plName = "pentan"
+        .plName = "pentan",
+        .name = "pentane"
     },
     {
-        .plName = "heksan"
+        .plName = "heksan",
+        .name = "hexane"
     },
     {
-        .plName = "heptan"
+        .plName = "heptan",
+        .name = "heptane"
     },
     {
-        .plName = "oktan"
+        .plName = "oktan",
+        .name = "octane"
     }
 };
 
 const Hydrocarbon ALKENES[SIZE] = {
     {
-        .plName = "ni mo"
+        .plName = "ni mo",
+        .name = "nuh uh"
     },
     {
-        .plName = "eten (etylen)"
+        .plName = "eten (etylen)",
+        .name = "ethene (ethylene)"
     },
     {
-        .plName = "propen"
+        .plName = "propen",
+        .name = "propene"
     },
     {
-        .plName = "but-1-en"
+        .plName = "but-1-en",
+        .name = "butene"
     },
     {
-        .plName = "pent-1-en"
+        .plName = "pent-1-en",
+        .name = "pentene"
     },
     {
-        .plName = "heks-1-en"
+        .plName = "heks-1-en",
+        .name = "hexene"
     },
     {
-        .plName = "hept-1-en"
+        .plName = "hept-1-en",
+        .name = "heptene"
     },
     {
-        .plName = "okt-1-en"
+        .plName = "okt-1-en",
+        .name = "octane"
     }
 };
 
 const Hydrocarbon ALKYNES[SIZE] = {
     {
-        .plName = "ni mo"
+        .plName = "ni mo",
+        .name = "nuh uh"
     },
     {
-        .plName = "etyn (acetylen)"
+        .plName = "etyn (acetylen)",
+        .name = "ethyne (acetylene)"
     },
     {
-        .plName = "propyn"
+        .plName = "propyn",
+        .name = "propyne"
     },
     {
-        .plName = "but-1-yn"
+        .plName = "but-1-yn",
+        .name = "butyne"
     },
     {
-        .plName = "pent-1-yn"
+        .plName = "pent-1-yn",
+        .name = "pentyne"
     },
     {
-        .plName = "heks-1-yn"
+        .plName = "heks-1-yn",
+        .name = "hexyne"
     },
     {
-        .plName = "hept-1-yn"
+        .plName = "hept-1-yn",
+        .name = "heptyne"
     },
     {
-        .plName = "okt-1-yn"
+        .plName = "okt-1-yn",
+        .name = "octyne"
     }
 };
 
@@ -110,7 +132,7 @@ void printHc(int c, const Hydrocarbon *array) {
     } else {
         const Hydrocarbon* c = &array[idx];
 
-        printf("%s \n", c->plName);
+        printf("%s (%s) \n", c->name, c->plName);
     }
 }
 
