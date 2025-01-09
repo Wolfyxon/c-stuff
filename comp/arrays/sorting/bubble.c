@@ -12,7 +12,7 @@ int main(int argc, char* argv[]) {
     int array[len];
 
     for(int i = 1; i < argc; i++) {
-        array[i] = atoi(argv[i]);
+        array[i - 1] = atoi(argv[i]);
     }
 
     bool ok = false;
