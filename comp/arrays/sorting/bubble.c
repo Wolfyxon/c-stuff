@@ -36,4 +36,6 @@ int main(int argc, char* argv[]) {
     for(int i = 0; i < len; i++) {
         printf("%i ", array[i]);
     }
+
+    puts("");
 }
