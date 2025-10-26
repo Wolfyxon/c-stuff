@@ -100,14 +100,15 @@ void solveAngles(double* anglePtrs[3]) {
     *anglePtrs[unknownIndex] = result;
 }
 
-double solveEdgeFromGammaC(double c, double gamma, double neighborAngle, size_t index) {
-    char edgeChar = getEdgeChar(index);
-    char* angleChar = getAngleChar(index);
+double solveEdgeFromAngles(double knownEdge, double edgeAngle, double otherAngle, size_t edgeIndex, size_t otherAngleIndex) {
+    char edgeChar = getEdgeChar(edgeIndex);
+    char* angleChar = getAngleChar(edgeIndex);
+    char* otherAngleChar = getAngleChar(otherAngleIndex);
 
-    double sinAng = sinDeg(neighborAngle);
-    double sinGam = sinDeg(gamma);
-    double top = c * sinAng;
-    double result = top / sinGam;
+    double sinAng = sinDeg(edgeAngle);
+    double sinOtherAng = sinDeg(otherAngle);
+    double top = knownEdge * sinAng;
+    double result = top / sinOtherAng;
 
     printf(
         "%c = (c * sin %s) / (sin %s) = ",
@@ -116,17 +117,17 @@ double solveEdgeFromGammaC(double c, double gamma, double neighborAngle, size_t 
 
     printf(
         "(%lf * sin %lf) / (sin %lf) = ",
-        c, neighborAngle, gamma
+        knownEdge, edgeAngle, otherAngle
     );
 
     printf(
         "(%lf * %lf) / (%lf) = ",
-        c, sinAng , sinGam
+        knownEdge, sinAng , sinOtherAng
     );
 
     printf(
         "(%lf) / (%lf) = %lf \n",
-        top, sinGam,
+        top, sinOtherAng,
         result
     );
 
@@ -156,13 +157,20 @@ void main(int argc, char** argv) {
     solveAngles(angles);
 
     // TODO: Understand the black trigonometry magic and add more cases
+    
+    if(a != NONE) {
+        if(c == NONE) {
+            
+        }
+    }
+    
     if(c != NONE) {
         if(a == NONE) {
-            a = solveEdgeFromGammaC(c, gamma, alpha, 0);
+            a = solveEdgeFromAngles(c, alpha, gamma, 0, 2);
         }
 
         if(b == NONE) {
-            b = solveEdgeFromGammaC(c, gamma, beta, 1);
+            b = solveEdgeFromAngles(c, beta, gamma, 1, 2);
         }
     }
 
