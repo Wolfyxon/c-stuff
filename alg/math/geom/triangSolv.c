@@ -100,9 +100,11 @@ void solveAngles(double* anglePtrs[3]) {
     *anglePtrs[unknownIndex] = result;
 }
 
+// TODO: Fix argument names, they're inaccurate
 double solveEdgeFromAngles(double knownEdge, double edgeAngle, double otherAngle, size_t edgeIndex, size_t otherAngleIndex) {
     char edgeChar = getEdgeChar(edgeIndex);
     char* angleChar = getAngleChar(edgeIndex);
+    char otherEdgeChar = getEdgeChar(otherAngleIndex);
     char* otherAngleChar = getAngleChar(otherAngleIndex);
 
     double sinAng = sinDeg(edgeAngle);
@@ -111,8 +113,8 @@ double solveEdgeFromAngles(double knownEdge, double edgeAngle, double otherAngle
     double result = top / sinOtherAng;
 
     printf(
-        "%c = (c * sin %s) / (sin %s) = ",
-        edgeChar, angleChar, GAMMA
+        "%c = (%c * sin %s) / (sin %s) = ",
+        edgeChar, otherEdgeChar, angleChar, otherAngleChar
     );
 
     printf(
@@ -156,11 +158,23 @@ void main(int argc, char** argv) {
     double* angles[3] = {&alpha, &beta, &gamma};
     solveAngles(angles);
 
-    // TODO: Understand the black trigonometry magic and add more cases
-    
     if(a != NONE) {
+        if(a == NONE) {
+            b = solveEdgeFromAngles(a, beta, alpha, 1, 0);
+        }
+
         if(c == NONE) {
-            
+            c = solveEdgeFromAngles(a, gamma, alpha, 2, 0);
+        }
+    }
+
+    if(b != NONE) {
+        if(a == NONE) {
+            a = solveEdgeFromAngles(b, alpha, beta, 0, 1);
+        }
+
+        if(c == NONE) {
+            c = solveEdgeFromAngles(b, gamma, beta, 2, 1);
         }
     }
     
