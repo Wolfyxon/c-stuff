@@ -19,6 +19,28 @@ float sinDeg(float deg) {
     return sin(deg2rad(deg));
 }
 
+char getEdgeChar(size_t i) {
+    switch(i) {
+        case 0:
+            return 'a';
+        case 1:
+            return 'b';
+        case 2:
+            return 'c';
+    }
+}
+
+char* getAngleChar(size_t i) {
+    switch(i) {
+        case 0:
+            return ALPHA;
+        case 1:
+            return BETA;
+        case 2:
+            return GAMMA;
+    }
+}
+
 float getNum(char** argv, size_t index) {
     char* arg = argv[index];
 
@@ -59,8 +81,24 @@ void solveAngles(float* anglePtrs[3]) {
     *unknownPtr = 180 - knownSum;
 }
 
-float solveEdgeFromGammaC(float c, float gamma, float neighborAngle) {
-    return (c * sinDeg(neighborAngle)) / sinDeg(gamma);
+float solveEdgeFromGammaC(float c, float gamma, float neighborAngle, size_t index) {
+    char edgeChar = getEdgeChar(index);
+    char* angleChar = getAngleChar(index);
+
+    float sinAng = sinDeg(neighborAngle);
+    float sinGam = sinDeg(gamma);
+    float top = c * sinAng;
+    float result = top / sinGam;
+
+    printf(
+        "%c = (c * sin %s) / (sin %s) = (%f * sin %f) / (sin %f) = (%f) / (%f) = %f \n", 
+        edgeChar, angleChar, GAMMA,
+        gamma, c, neighborAngle,
+        top, sinGam,
+        result
+    );
+
+    return result;
 }
 
 void main(int argc, char** argv) {
@@ -80,7 +118,7 @@ void main(int argc, char** argv) {
     float beta = getNum(argv, 5);
     float gamma = getNum(argv, 6);
     
-    // Solving stuff
+    printf("--- CALCULATIONS: --- \n");
 
     float* angles[3] = {&alpha, &beta, &gamma};
     solveAngles(angles);
@@ -88,15 +126,16 @@ void main(int argc, char** argv) {
     // TODO: Understand the black trigonometry magic and add more cases
     if(c != NONE) {
         if(a == NONE) {
-            a = solveEdgeFromGammaC(c, gamma, alpha);
+            a = solveEdgeFromGammaC(c, gamma, alpha, 0);
         }
 
         if(b == NONE) {
-            b = solveEdgeFromGammaC(c, gamma, beta);
+            b = solveEdgeFromGammaC(c, gamma, beta, 1);
         }
     }
 
-    // Results
+    printf("\n--- RESULTS: --- \n");
+
     printf("- Edges: - \n");
     printf("a: %f \n", a);
     printf("b: %f \n", b);
