@@ -110,13 +110,21 @@ double solveEdgeFromGammaC(double c, double gamma, double neighborAngle, size_t 
     double result = top / sinGam;
 
     printf(
-        "%c = (c * sin %s) / (sin %s) = (%lf * sin %lf) / (sin %lf) = (%lf) / (%lf) = %lf \n", 
-        edgeChar, angleChar, GAMMA,
-        gamma, c, neighborAngle,
+        "%c = (c * sin %s) / (sin %s) = ",
+        edgeChar, angleChar, GAMMA
+    );
+
+    printf(
+        "(%lf * sin %lf) / (sin %lf) = ",
+        gamma, c, neighborAngle
+    );
+
+    printf(
+        "(%lf) / (%lf) = %lf \n",
         top, sinGam,
         result
     );
-
+    
     return result;
 }
 
