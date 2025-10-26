@@ -120,11 +120,16 @@ double solveEdgeFromGammaC(double c, double gamma, double neighborAngle, size_t 
     );
 
     printf(
+        "(%lf * %lf) / (%lf) = ",
+        c, sinAng , sinGam
+    );
+
+    printf(
         "(%lf) / (%lf) = %lf \n",
         top, sinGam,
         result
     );
-    
+
     return result;
 }
 
