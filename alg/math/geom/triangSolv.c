@@ -7,6 +7,10 @@
 #define NONE __FLT_MAX__
 #define PI 3.14159265358979323846
 
+#define ALPHA "\u03b1"
+#define BETA "\u03b2"
+#define GAMMA "\u03b3"
+
 float deg2rad(float deg) {
     return deg * PI / 180;
 }
@@ -99,8 +103,8 @@ void main(int argc, char** argv) {
     printf("c: %f \n", c);
     
     printf("- Angles: - \n");
-    printf("Alpha: %f \n", alpha);
-    printf("Beta: %f \n", beta);
-    printf("Gamma: %f \n", gamma);
+    printf("%s: %f \n", ALPHA, alpha);
+    printf("%s: %f \n", BETA, beta);
+    printf("%s: %f \n", GAMMA, gamma);
     
 }
