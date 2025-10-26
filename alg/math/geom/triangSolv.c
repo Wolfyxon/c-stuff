@@ -53,7 +53,10 @@ float getNum(char** argv, size_t index) {
 
 void solveAngles(float* anglePtrs[3]) {
     size_t unknownCount = 0;
-    float* unknownPtr;
+    size_t unknownIndex;
+    
+    size_t knownIndex1 = 999;
+    size_t knownIndex2 = 999;
     
     float knownSum = 0;
 
@@ -62,10 +65,16 @@ void solveAngles(float* anglePtrs[3]) {
         float angle = *ptr;
 
         if(angle == NONE) {
-            unknownPtr = ptr;
+            unknownIndex = i;
             unknownCount++;
         } else {
             knownSum += angle;
+
+            if(knownIndex1 == 999) {
+                knownIndex1 = i;
+            } else {
+                knownIndex2 = i;
+            }
         }
     }
 
@@ -78,7 +87,17 @@ void solveAngles(float* anglePtrs[3]) {
         exit(1);
     }
 
-    *unknownPtr = 180 - knownSum;
+    float result = 180 - knownSum;
+
+    printf(
+        "%s = 180 - %s - %s = 180 - %f - %f = 180 - %f = %f \n", 
+        getAngleChar(unknownIndex), getAngleChar(knownIndex1), getAngleChar(knownIndex2),
+        *anglePtrs[knownIndex1], *anglePtrs[knownIndex2],
+        knownSum,
+        result
+    );
+
+    *anglePtrs[unknownIndex] = result;
 }
 
 float solveEdgeFromGammaC(float c, float gamma, float neighborAngle, size_t index) {
