@@ -11,11 +11,11 @@
 #define BETA "\u03b2"
 #define GAMMA "\u03b3"
 
-float deg2rad(float deg) {
+double deg2rad(double deg) {
     return deg * PI / 180;
 }
 
-float sinDeg(float deg) {
+double sinDeg(double deg) {
     return sin(deg2rad(deg));
 }
 
@@ -41,7 +41,7 @@ char* getAngleChar(size_t i) {
     }
 }
 
-float getNum(char** argv, size_t index) {
+double getNum(char** argv, size_t index) {
     char* arg = argv[index];
 
     if(strcmp(arg, "x") == 0) {
@@ -51,18 +51,18 @@ float getNum(char** argv, size_t index) {
     return atof(arg);
 }
 
-void solveAngles(float* anglePtrs[3]) {
+void solveAngles(double* anglePtrs[3]) {
     size_t unknownCount = 0;
     size_t unknownIndex;
     
     size_t knownIndex1 = 999;
     size_t knownIndex2 = 999;
     
-    float knownSum = 0;
+    double knownSum = 0;
 
     for(size_t i = 0; i < 3; i++) {
-        float* ptr = anglePtrs[i];;
-        float angle = *ptr;
+        double* ptr = anglePtrs[i];;
+        double angle = *ptr;
 
         if(angle == NONE) {
             unknownIndex = i;
@@ -87,10 +87,10 @@ void solveAngles(float* anglePtrs[3]) {
         exit(1);
     }
 
-    float result = 180 - knownSum;
+    double result = 180 - knownSum;
 
     printf(
-        "%s = 180 - %s - %s = 180 - %f - %f = 180 - %f = %f \n", 
+        "%s = 180 - %s - %s = 180 - %lf - %lf = 180 - %lf = %lf \n", 
         getAngleChar(unknownIndex), getAngleChar(knownIndex1), getAngleChar(knownIndex2),
         *anglePtrs[knownIndex1], *anglePtrs[knownIndex2],
         knownSum,
@@ -100,17 +100,17 @@ void solveAngles(float* anglePtrs[3]) {
     *anglePtrs[unknownIndex] = result;
 }
 
-float solveEdgeFromGammaC(float c, float gamma, float neighborAngle, size_t index) {
+double solveEdgeFromGammaC(double c, double gamma, double neighborAngle, size_t index) {
     char edgeChar = getEdgeChar(index);
     char* angleChar = getAngleChar(index);
 
-    float sinAng = sinDeg(neighborAngle);
-    float sinGam = sinDeg(gamma);
-    float top = c * sinAng;
-    float result = top / sinGam;
+    double sinAng = sinDeg(neighborAngle);
+    double sinGam = sinDeg(gamma);
+    double top = c * sinAng;
+    double result = top / sinGam;
 
     printf(
-        "%c = (c * sin %s) / (sin %s) = (%f * sin %f) / (sin %f) = (%f) / (%f) = %f \n", 
+        "%c = (c * sin %s) / (sin %s) = (%lf * sin %lf) / (sin %lf) = (%lf) / (%lf) = %lf \n", 
         edgeChar, angleChar, GAMMA,
         gamma, c, neighborAngle,
         top, sinGam,
@@ -128,18 +128,18 @@ void main(int argc, char** argv) {
     }
 
     // Edges
-    float a = getNum(argv, 1);
-    float b = getNum(argv, 2);
-    float c = getNum(argv, 3);
+    double a = getNum(argv, 1);
+    double b = getNum(argv, 2);
+    double c = getNum(argv, 3);
 
     // Angles
-    float alpha = getNum(argv, 4);
-    float beta = getNum(argv, 5);
-    float gamma = getNum(argv, 6);
+    double alpha = getNum(argv, 4);
+    double beta = getNum(argv, 5);
+    double gamma = getNum(argv, 6);
     
     printf("--- CALCULATIONS: --- \n");
 
-    float* angles[3] = {&alpha, &beta, &gamma};
+    double* angles[3] = {&alpha, &beta, &gamma};
     solveAngles(angles);
 
     // TODO: Understand the black trigonometry magic and add more cases
@@ -156,13 +156,13 @@ void main(int argc, char** argv) {
     printf("\n--- RESULTS: --- \n");
 
     printf("- Edges: - \n");
-    printf("a: %f \n", a);
-    printf("b: %f \n", b);
-    printf("c: %f \n", c);
+    printf("a: %lf \n", a);
+    printf("b: %lf \n", b);
+    printf("c: %lf \n", c);
     
     printf("- Angles: - \n");
-    printf("%s: %f \n", ALPHA, alpha);
-    printf("%s: %f \n", BETA, beta);
-    printf("%s: %f \n", GAMMA, gamma);
+    printf("%s: %lf \n", ALPHA, alpha);
+    printf("%s: %lf \n", BETA, beta);
+    printf("%s: %lf \n", GAMMA, gamma);
     
 }
